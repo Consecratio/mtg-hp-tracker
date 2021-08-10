@@ -1,23 +1,41 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [counter, setCounter] = useState(0)
+  const [amount, setAmount] = useState(0)
+
+  const addOne = () => {
+    amount === 0 ? setCounter(counter + 1):setCounter(counter + amount)
+  }
+
+  const subOne = () => {
+    setCounter(counter - 1)
+  }
+
+  const commander = () => {
+    setCounter(40)
+    setAmount(0)
+  }
+  
+  const standard = () => {
+    setCounter(20)
+    setAmount(0)
+  }
+
+  const value = (e) => {
+    console.log(amount)
+    setAmount(Number(e.target.value))
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={commander}>Commander</button>
+      <button onClick={standard}>Standard</button>
+      <p>{counter}</p>
+      <input value={amount} onChange={e => value(e)} />
+      <button onClick={addOne}>+</button>
+      <button onClick={subOne}>-</button>
     </div>
   );
 }
