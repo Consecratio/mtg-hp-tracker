@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
-  const [counter, setCounter] = useState(0)
+  const [counter, setCounter] = useState(20)
   const [amount, setAmount] = useState(0)
 
   const addOne = () => {
